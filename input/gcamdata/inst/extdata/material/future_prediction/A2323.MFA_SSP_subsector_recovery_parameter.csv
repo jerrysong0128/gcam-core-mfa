@@ -1,0 +1,199 @@
+# File:  A2323.MFA_SSP_subsector_recovery_parameter.csv
+# Title: paramter for recovery function with historical and perspective lifetime iron&steel outflow (subsectored & scenarioed) (scenario for 2060) (updated: 2025-07-31)
+# Units: NA
+# Description:  paramter for recovery function with historical and perspective lifetime iron&steel outflow (subsectored & scenarioed) (scenario for 2060) World Steel Association. (2018). Steel and raw materials: Fact sheet. World Steel Association. https://www.steel.org.au/resources/elibrary/resources/worldsteel-fact-sheet-steel-and-raw-materials/
+# Column types: ccnnnn
+# ----------
+region,scenario,T_r_rate,M_r_rate,C_r_rate,P_r_rate
+Africa_Eastern,SSP2,0.15,0.085,0.075,0.055
+Africa_Northern,SSP2,0.15,0.085,0.075,0.055
+Africa_Southern,SSP2,0.15,0.085,0.075,0.055
+Africa_Western,SSP2,0.15,0.085,0.075,0.055
+Argentina,SSP2,0.15,0.085,0.075,0.055
+Australia_NZ,SSP2,0.15,0.085,0.075,0.055
+Brazil,SSP2,0.15,0.085,0.075,0.055
+Canada,SSP2,0.15,0.085,0.075,0.055
+Central America and Caribbean,SSP2,0.15,0.085,0.075,0.055
+Central Asia,SSP2,0.15,0.085,0.075,0.055
+China,SSP2,0.15,0.085,0.075,0.055
+Colombia,SSP2,0.15,0.085,0.075,0.055
+EU-12,SSP2,0.15,0.085,0.075,0.055
+EU-15,SSP2,0.15,0.085,0.075,0.055
+Ukraine,SSP2,0.15,0.085,0.075,0.055
+Europe_Non_EU,SSP2,0.15,0.085,0.075,0.055
+European Free Trade Association,SSP2,0.15,0.085,0.075,0.055
+India,SSP2,0.15,0.085,0.075,0.055
+Indonesia,SSP2,0.15,0.085,0.075,0.055
+Japan,SSP2,0.15,0.085,0.075,0.055
+Mexico,SSP2,0.15,0.085,0.075,0.055
+Middle East,SSP2,0.15,0.085,0.075,0.055
+Pakistan,SSP2,0.15,0.085,0.075,0.055
+Russia,SSP2,0.15,0.085,0.075,0.055
+South Africa,SSP2,0.15,0.085,0.075,0.055
+South America_Northern,SSP2,0.15,0.085,0.075,0.055
+South America_Southern,SSP2,0.15,0.085,0.075,0.055
+South Asia,SSP2,0.15,0.085,0.075,0.055
+South Korea,SSP2,0.15,0.085,0.075,0.055
+Southeast Asia,SSP2,0.15,0.085,0.075,0.055
+Taiwan,SSP2,0.15,0.085,0.075,0.055
+USA,SSP2,0.15,0.085,0.075,0.055
+Africa_Eastern,SSP1,0.3,0.17,0.15,0.11
+Africa_Northern,SSP1,0.3,0.17,0.15,0.11
+Africa_Southern,SSP1,0.3,0.17,0.15,0.11
+Africa_Western,SSP1,0.3,0.17,0.15,0.11
+Argentina,SSP1,0.3,0.17,0.15,0.11
+Australia_NZ,SSP1,0.3,0.17,0.15,0.11
+Brazil,SSP1,0.3,0.17,0.15,0.11
+Canada,SSP1,0.3,0.17,0.15,0.11
+Central America and Caribbean,SSP1,0.3,0.17,0.15,0.11
+Central Asia,SSP1,0.3,0.17,0.15,0.11
+China,SSP1,0.3,0.17,0.15,0.11
+Colombia,SSP1,0.3,0.17,0.15,0.11
+EU-12,SSP1,0.3,0.17,0.15,0.11
+EU-15,SSP1,0.3,0.17,0.15,0.11
+Ukraine,SSP1,0.3,0.17,0.15,0.11
+Europe_Non_EU,SSP1,0.3,0.17,0.15,0.11
+European Free Trade Association,SSP1,0.3,0.17,0.15,0.11
+India,SSP1,0.3,0.17,0.15,0.11
+Indonesia,SSP1,0.3,0.17,0.15,0.11
+Japan,SSP1,0.3,0.17,0.15,0.11
+Mexico,SSP1,0.3,0.17,0.15,0.11
+Middle East,SSP1,0.3,0.17,0.15,0.11
+Pakistan,SSP1,0.3,0.17,0.15,0.11
+Russia,SSP1,0.3,0.17,0.15,0.11
+South Africa,SSP1,0.3,0.17,0.15,0.11
+South America_Northern,SSP1,0.3,0.17,0.15,0.11
+South America_Southern,SSP1,0.3,0.17,0.15,0.11
+South Asia,SSP1,0.3,0.17,0.15,0.11
+South Korea,SSP1,0.3,0.17,0.15,0.11
+Southeast Asia,SSP1,0.3,0.17,0.15,0.11
+Taiwan,SSP1,0.3,0.17,0.15,0.11
+USA,SSP1,0.3,0.17,0.15,0.11
+Africa_Eastern,SSP3,0.15,0.085,0.075,0.055
+Africa_Northern,SSP3,0.15,0.085,0.075,0.055
+Africa_Southern,SSP3,0.15,0.085,0.075,0.055
+Africa_Western,SSP3,0.15,0.085,0.075,0.055
+Argentina,SSP3,0.15,0.085,0.075,0.055
+Australia_NZ,SSP3,0.15,0.085,0.075,0.055
+Brazil,SSP3,0.15,0.085,0.075,0.055
+Canada,SSP3,0.15,0.085,0.075,0.055
+Central America and Caribbean,SSP3,0.15,0.085,0.075,0.055
+Central Asia,SSP3,0.15,0.085,0.075,0.055
+China,SSP3,0.15,0.085,0.075,0.055
+Colombia,SSP3,0.15,0.085,0.075,0.055
+EU-12,SSP3,0.15,0.085,0.075,0.055
+EU-15,SSP3,0.15,0.085,0.075,0.055
+Ukraine,SSP3,0.15,0.085,0.075,0.055
+Europe_Non_EU,SSP3,0.15,0.085,0.075,0.055
+European Free Trade Association,SSP3,0.15,0.085,0.075,0.055
+India,SSP3,0.15,0.085,0.075,0.055
+Indonesia,SSP3,0.15,0.085,0.075,0.055
+Japan,SSP3,0.15,0.085,0.075,0.055
+Mexico,SSP3,0.15,0.085,0.075,0.055
+Middle East,SSP3,0.15,0.085,0.075,0.055
+Pakistan,SSP3,0.15,0.085,0.075,0.055
+Russia,SSP3,0.15,0.085,0.075,0.055
+South Africa,SSP3,0.15,0.085,0.075,0.055
+South America_Northern,SSP3,0.15,0.085,0.075,0.055
+South America_Southern,SSP3,0.15,0.085,0.075,0.055
+South Asia,SSP3,0.15,0.085,0.075,0.055
+South Korea,SSP3,0.15,0.085,0.075,0.055
+Southeast Asia,SSP3,0.15,0.085,0.075,0.055
+Taiwan,SSP3,0.15,0.085,0.075,0.055
+USA,SSP3,0.15,0.085,0.075,0.055
+Africa_Eastern,SSP4,0.15,0.085,0.075,0.055
+Africa_Northern,SSP4,0.15,0.085,0.075,0.055
+Africa_Southern,SSP4,0.15,0.085,0.075,0.055
+Africa_Western,SSP4,0.15,0.085,0.075,0.055
+Argentina,SSP4,0.15,0.085,0.075,0.055
+Australia_NZ,SSP4,0.15,0.085,0.075,0.055
+Brazil,SSP4,0.15,0.085,0.075,0.055
+Canada,SSP4,0.15,0.085,0.075,0.055
+Central America and Caribbean,SSP4,0.15,0.085,0.075,0.055
+Central Asia,SSP4,0.15,0.085,0.075,0.055
+China,SSP4,0.15,0.085,0.075,0.055
+Colombia,SSP4,0.15,0.085,0.075,0.055
+EU-12,SSP4,0.15,0.085,0.075,0.055
+EU-15,SSP4,0.15,0.085,0.075,0.055
+Ukraine,SSP4,0.15,0.085,0.075,0.055
+Europe_Non_EU,SSP4,0.15,0.085,0.075,0.055
+European Free Trade Association,SSP4,0.15,0.085,0.075,0.055
+India,SSP4,0.15,0.085,0.075,0.055
+Indonesia,SSP4,0.15,0.085,0.075,0.055
+Japan,SSP4,0.15,0.085,0.075,0.055
+Mexico,SSP4,0.15,0.085,0.075,0.055
+Middle East,SSP4,0.15,0.085,0.075,0.055
+Pakistan,SSP4,0.15,0.085,0.075,0.055
+Russia,SSP4,0.15,0.085,0.075,0.055
+South Africa,SSP4,0.15,0.085,0.075,0.055
+South America_Northern,SSP4,0.15,0.085,0.075,0.055
+South America_Southern,SSP4,0.15,0.085,0.075,0.055
+South Asia,SSP4,0.15,0.085,0.075,0.055
+South Korea,SSP4,0.15,0.085,0.075,0.055
+Southeast Asia,SSP4,0.15,0.085,0.075,0.055
+Taiwan,SSP4,0.15,0.085,0.075,0.055
+USA,SSP4,0.15,0.085,0.075,0.055
+Africa_Eastern,SSP5,0.15,0.085,0.075,0.055
+Africa_Northern,SSP5,0.15,0.085,0.075,0.055
+Africa_Southern,SSP5,0.15,0.085,0.075,0.055
+Africa_Western,SSP5,0.15,0.085,0.075,0.055
+Argentina,SSP5,0.15,0.085,0.075,0.055
+Australia_NZ,SSP5,0.15,0.085,0.075,0.055
+Brazil,SSP5,0.15,0.085,0.075,0.055
+Canada,SSP5,0.15,0.085,0.075,0.055
+Central America and Caribbean,SSP5,0.15,0.085,0.075,0.055
+Central Asia,SSP5,0.15,0.085,0.075,0.055
+China,SSP5,0.15,0.085,0.075,0.055
+Colombia,SSP5,0.15,0.085,0.075,0.055
+EU-12,SSP5,0.15,0.085,0.075,0.055
+EU-15,SSP5,0.15,0.085,0.075,0.055
+Ukraine,SSP5,0.15,0.085,0.075,0.055
+Europe_Non_EU,SSP5,0.15,0.085,0.075,0.055
+European Free Trade Association,SSP5,0.15,0.085,0.075,0.055
+India,SSP5,0.15,0.085,0.075,0.055
+Indonesia,SSP5,0.15,0.085,0.075,0.055
+Japan,SSP5,0.15,0.085,0.075,0.055
+Mexico,SSP5,0.15,0.085,0.075,0.055
+Middle East,SSP5,0.15,0.085,0.075,0.055
+Pakistan,SSP5,0.15,0.085,0.075,0.055
+Russia,SSP5,0.15,0.085,0.075,0.055
+South Africa,SSP5,0.15,0.085,0.075,0.055
+South America_Northern,SSP5,0.15,0.085,0.075,0.055
+South America_Southern,SSP5,0.15,0.085,0.075,0.055
+South Asia,SSP5,0.15,0.085,0.075,0.055
+South Korea,SSP5,0.15,0.085,0.075,0.055
+Southeast Asia,SSP5,0.15,0.085,0.075,0.055
+Taiwan,SSP5,0.15,0.085,0.075,0.055
+USA,SSP5,0.15,0.085,0.075,0.055
+Africa_Eastern,history,0,0,0,0
+Africa_Northern,history,0,0,0,0
+Africa_Southern,history,0,0,0,0
+Africa_Western,history,0,0,0,0
+Argentina,history,0,0,0,0
+Australia_NZ,history,0,0,0,0
+Brazil,history,0,0,0,0
+Canada,history,0,0,0,0
+Central America and Caribbean,history,0,0,0,0
+Central Asia,history,0,0,0,0
+China,history,0,0,0,0
+Colombia,history,0,0,0,0
+EU-12,history,0,0,0,0
+EU-15,history,0,0,0,0
+Ukraine,history,0,0,0,0
+Europe_Non_EU,history,0,0,0,0
+European Free Trade Association,history,0,0,0,0
+India,history,0,0,0,0
+Indonesia,history,0,0,0,0
+Japan,history,0,0,0,0
+Mexico,history,0,0,0,0
+Middle East,history,0,0,0,0
+Pakistan,history,0,0,0,0
+Russia,history,0,0,0,0
+South Africa,history,0,0,0,0
+South America_Northern,history,0,0,0,0
+South America_Southern,history,0,0,0,0
+South Asia,history,0,0,0,0
+South Korea,history,0,0,0,0
+Southeast Asia,history,0,0,0,0
+Taiwan,history,0,0,0,0
+USA,history,0,0,0,0
