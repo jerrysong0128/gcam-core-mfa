@@ -694,6 +694,16 @@ energy.IRON_STEEL.RESOURCES <- c("Other semi-finished iron and steel products","
                                  "Iron and steel wire","Iron and steel sections") #finished and semi-finished iron and steel resources
 energy.IRON_STEEL.DOMESTIC_SW <- c("Africa_Southern","Indonesia","Africa_Northern","Africa_Eastern","Africa_Western","South Asia","Southeast Asia")
 energy.IRON_STEEL.TRADED_SW <- c("Africa_Southern traded iron and steel","Indonesia traded iron and steel","Africa_Northern traded iron and steel","Africa_Eastern traded iron and steel","Africa_Western traded iron and steel","South Asia traded iron and steel","Southeast Asia traded iron and steel")
+energy.CALIBRATED_STEEL_TECHS <- c("BF_BOF", "DRI_EAF_NG", "EAF_scrap_fossil_NG_finish")
+energy.STEEL_PRODUCTION_SECTORS <- c("BF_BOF", "BF_BOF_CCS_73%", "BF_BOF_CCS_86%",
+                                     "BF_BOF_BECCSmin", "BF_BOF_BECCSmax", "SR_BOF", "SR_BOF_CCS",
+                                     "DRI_EAF_NG", "DRI_EAF_NG_CCS", "DRI_EAF_coal", "DRI_EAF_coal_CCS",
+                                     "DRI_EAF_BECCS", "DRI_EAF_H2", "DRI_SAF_BOF_NG", "DRI_SAF_BOF_H2",
+                                     "DRI_SAF_BOF_BECCS", "AEL_EAF", "MOE",
+                                     "EAF_scrap_fossil_NG_finish", "EAF_scrap_bio_NG_finish",
+                                     "EAF_scrap_fossil_elec_finish", "EAF_scrap_bio_elec_finish")
+energy.IRON_STEEL_CALCULATE_IO <- FALSE
+energy.CHARCOAL_PRICE_ADDER <- 2.52 # 1975$/GJ; charcoal is assumed to cost 1.2 times delivered biomass
 energy.FOOD_PROCESSING.IEA_INDUSTRY_FLOWS <- c("MINING", "CONSTRUC", "IRONSTL", "CHEMICAL", "NONFERR", "NONMET", "TRANSEQ", "MACHINE", "FOODPRO", "PAPERPRO", "WOODPRO", "TEXTILES", "INONSPEC") # IEA industry flows
 energy.FOOD_PROCESSING.IEA_INONSPEC_FLOW <- "INONSPEC" # IEA non-specified industry flow
 energy.FOOD_PROCESSING.IEA_FOODPRO_FLOW <- "FOODPRO" # IEA food processing industry flow
@@ -791,7 +801,7 @@ socioeconomics.FINAL_DEMAND_SECTORS <- c("other industrial energy use",
                                          "mining energy use",
                                          "chemical energy use",
                                          "alumina",
-                                         "iron and steel",
+                                         energy.STEEL_PRODUCTION_SECTORS,
                                          "process heat food processing",
                                          "process heat paper",
                                          "waste biomass for paper",
