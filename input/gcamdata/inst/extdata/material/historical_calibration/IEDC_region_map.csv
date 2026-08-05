@@ -1,0 +1,154 @@
+# File: IEDC_region_map.csv
+# Title: Mapping from IEDC regions to GCAM regions
+# Units: NA
+# Description: Maps IEDC origin regions to the 32 GCAM regions
+# Source: User-provided mapping for IEDC historical steel data
+# Column types: cc
+# ----------
+region_IEDC,region_GCAM
+Afghanistan,Central Asia
+Albania,Europe_Non_EU
+Algeria,Africa_Northern
+Angola,Africa_Southern
+Argentina,Argentina
+Australia,Australia_NZ
+Austria,EU-15
+Bahrain,Middle East
+Bangladesh,South Asia
+Barbados,Central America and Caribbean
+Belgium-Luxembourg,EU-15
+Bermuda,Central America and Caribbean
+Bolivia,South America_Northern
+Brazil,Brazil
+Belize,Central America and Caribbean
+Brunei Darussalam,Southeast Asia
+Bulgaria,EU-12
+Myanmar,Southeast Asia
+Burundi,Africa_Eastern
+Cambodia,Southeast Asia
+Cameroon,Africa_Western
+Canada,Canada
+Central African Republic,Africa_Eastern
+Sri Lanka,South Asia
+Chad,Africa_Western
+Chile,South America_Southern
+China,China
+Colombia,Colombia
+"Congo, Rep.",Africa_Western
+"Congo, Dem. Rep.",Africa_Western
+Costa Rica,Central America and Caribbean
+Cuba,Central America and Caribbean
+Cyprus,Middle East
+Czechoslovakia,EU-12
+Benin,Africa_Western
+Denmark,EU-15
+Dominican Republic,Central America and Caribbean
+Ecuador,South America_Northern
+El Salvador,Central America and Caribbean
+Ethiopia,Africa_Eastern
+Faeroe Islands,European Free Trade Association
+Fiji,Australia_NZ
+Finland,EU-15
+France,EU-15
+French Polynesia,Australia_NZ
+Djibouti,Africa_Eastern
+Gabon,Africa_Western
+"Gambia, The",Africa_Western
+Germany,EU-15
+Ghana,Africa_Western
+Kiribati,Australia_NZ
+Greece,EU-15
+Greenland,European Free Trade Association
+Grenada,Central America and Caribbean
+Guatemala,Central America and Caribbean
+Guinea,Africa_Western
+Guyana,South America_Northern
+Haiti,Central America and Caribbean
+Honduras,Central America and Caribbean
+Hungary,EU-12
+Iceland,European Free Trade Association
+Indonesia,Indonesia
+"Iran, Islamic Rep.",Middle East
+Iraq,Middle East
+Ireland,EU-15
+Israel,Middle East
+Italy,EU-15
+Jamaica,Central America and Caribbean
+Japan,Japan
+Jordan,Middle East
+Kenya,Africa_Eastern
+South Korea,South Korea
+Kuwait,Middle East
+Lebanon,Middle East
+Liberia,Africa_Western
+Libya,Africa_Northern
+Madagascar,Africa_Eastern
+Malawi,Africa_Eastern
+Malaysia,Southeast Asia
+Maldives,South Asia
+Mali,Africa_Western
+Malta,EU-15
+Mauritania,Africa_Western
+Mauritius,Africa_Eastern
+Mexico,Mexico
+Mongolia,Central Asia
+Morocco,Africa_Northern
+Mozambique,Africa_Eastern
+Oman,Middle East
+Netherlands,EU-15
+Netherlands Antilles,Central America and Caribbean
+Vanuatu,Australia_NZ
+New Zealand,Australia_NZ
+Nicaragua,Central America and Caribbean
+Niger,Africa_Western
+Nigeria,Africa_Western
+Norway,European Free Trade Association
+Pakistan,Pakistan
+Panama,Central America and Caribbean
+Papua New Guinea,Australia_NZ
+Paraguay,South America_Southern
+Peru,South America_Northern
+Philippines,Southeast Asia
+Poland,EU-12
+Portugal,EU-15
+Guinea-Bissau,Africa_Western
+Qatar,Middle East
+Romania,EU-12
+Rwanda,Africa_Eastern
+Saudi Arabia,Middle East
+Senegal,Africa_Western
+Seychelles,Africa_Eastern
+Sierra Leone,Africa_Western
+India,India
+Singapore,Southeast Asia
+Vietnam,Southeast Asia
+Somalia,Africa_Eastern
+South Africa,South Africa
+Zimbabwe,Africa_Southern
+Spain,EU-15
+Sudan,Africa_Northern
+Suriname,South America_Northern
+Sweden,EU-15
+Switzerland,European Free Trade Association
+Syrian Arab Republic,Middle East
+Thailand,Southeast Asia
+Togo,Africa_Western
+Tonga,Australia_NZ
+Trinidad and Tobago,Central America and Caribbean
+United Arab Emirates,Middle East
+Tunisia,Africa_Northern
+Turkey,Europe_Non_EU
+Uganda,Africa_Eastern
+Fmr USSR,Russia
+"Egypt, Arab Rep.",Africa_Northern
+United Kingdom,EU-15
+Tanzania,Africa_Eastern
+United States,USA
+Burkina Faso,Africa_Western
+Uruguay,South America_Southern
+"Venezuela, RB",South America_Northern
+Samoa,Australia_NZ
+"Yemen, Rep.",Middle East
+Fmr Yugoslavia,Europe_Non_EU
+Zambia,Africa_Eastern
+Other,Other
