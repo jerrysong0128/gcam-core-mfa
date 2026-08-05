@@ -1,0 +1,12 @@
+# File: steel_prod_process_Wuppertal.csv
+# Title: Crude steel production by country and process from Wuppertal Institute
+# Units: Thousand tonnes
+# Description: National steel production by process
+# Source: Wuppertal Institute
+# Column types: ccnnnnnnnnnnnn
+# ----------
+subsector,technology,Australia,Brazil,China,EU_27,India,Iran,Japan,Rest of World,Russia,South_Africa,South_Korea,United_States
+BF_BOF,BF_BOF,4.3,28,955,90,60,3.5,62,26,50,3,48.3,26
+DRI_EAF_coal,DRI_EAF_coal,0,0,0,0,26,0,0,0,0,0,0,0
+DRI_EAF_NG,DRI_EAF_NG,0,0,0,0,8,25,0,0,12,0,0,22
+EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,1.5,7,105,76,12,0,21,104.2,13.5,2.5,24.2,34
