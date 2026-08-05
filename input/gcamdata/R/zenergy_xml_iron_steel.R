@@ -30,7 +30,8 @@ module_energy_iron_steel_xml <- function(command, ...) {
              "L2323.StubTechCoef_iron_steel",
              "L2323.PerCapitaBased_iron_steel",
              "L2323.BaseService_iron_steel",
-             "L2323.PriceElasticity_iron_steel"))
+             "L2323.PriceElasticity_iron_steel",
+             "L2323.StubTechShrwt_iron_steel"))
   } else if(command == driver.DECLARE_OUTPUTS) {
     return(c(XML = "iron_steel.xml"))
   } else if(command == driver.MAKE) {
@@ -57,7 +58,7 @@ module_energy_iron_steel_xml <- function(command, ...) {
     L2323.PerCapitaBased_iron_steel <- get_data(all_data, "L2323.PerCapitaBased_iron_steel")
     L2323.BaseService_iron_steel <- get_data(all_data, "L2323.BaseService_iron_steel")
     L2323.PriceElasticity_iron_steel <- get_data(all_data, "L2323.PriceElasticity_iron_steel")
-
+    L2323.StubTechShrwt_iron_steel <- get_data(all_data, "L2323.StubTechShrwt_iron_steel")
     # ===================================================
 
     # Produce outputs
@@ -76,9 +77,11 @@ module_energy_iron_steel_xml <- function(command, ...) {
       add_xml_data(L2323.GlobalTechCapture_iron_steel, "GlobalTechCapture") %>%
       add_xml_data(L2323.GlobalTechSCurve_en, "GlobalTechSCurve") %>%
       add_xml_data(L2323.GlobalTechProfitShutdown_en, "GlobalTechProfitShutdown") %>%
+      # Don't want any stub tech costs
       add_xml_data(L2323.StubTechCost_iron_steel, "StubTechCost") %>%
       add_xml_data(L2323.StubTechProd_iron_steel, "StubTechProd") %>%
       add_xml_data(L2323.StubTechCoef_iron_steel, "StubTechCoef") %>%
+      add_xml_data(L2323.StubTechShrwt_iron_steel, "StubTechShrwt") %>%
       add_xml_data(L2323.PerCapitaBased_iron_steel, "PerCapitaBased") %>%
       add_xml_data(L2323.BaseService_iron_steel, "BaseService") %>%
       add_xml_data(L2323.PriceElasticity_iron_steel, "PriceElasticity") %>%
