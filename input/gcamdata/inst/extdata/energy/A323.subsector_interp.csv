@@ -4,6 +4,25 @@
 # Column types: ccccccc
 # ----------
 supplysector,subsector,apply.to,from.year,to.year,to.value,interpolation.function
-iron and steel,BLASTFUR,share-weight,final-calibration-year,end-year,,fixed
-iron and steel,EAF with DRI,share-weight,final-calibration-year,end-year,,linear
-iron and steel,EAF with scrap,share-weight,final-calibration-year,end-year,,fixed
+BF_BOF,BF_BOF,share-weight,final-calibration-year,end-year,,linear
+BF_BOF_CCS_73%,BF_BOF_CCS_73%,share-weight,final-calibration-year,end-year,,linear
+BF_BOF_CCS_86%,BF_BOF_CCS_86%,share-weight,final-calibration-year,end-year,,linear
+BF_BOF_BECCSmin,BF_BOF_BECCSmin,share-weight,final-calibration-year,end-year,,linear
+BF_BOF_BECCSmax,BF_BOF_BECCSmax,share-weight,final-calibration-year,end-year,,linear
+SR_BOF,SR_BOF,share-weight,final-calibration-year,end-year,,linear
+SR_BOF_CCS,SR_BOF_CCS,share-weight,final-calibration-year,end-year,,linear
+DRI_EAF_NG,DRI_EAF_NG,share-weight,final-calibration-year,end-year,,linear
+DRI_EAF_NG_CCS,DRI_EAF_NG_CCS,share-weight,final-calibration-year,end-year,,linear
+DRI_EAF_coal,DRI_EAF_coal,share-weight,final-calibration-year,end-year,,linear
+DRI_EAF_coal_CCS,DRI_EAF_coal_CCS,share-weight,final-calibration-year,end-year,,linear
+DRI_EAF_BECCS,DRI_EAF_BECCS,share-weight,final-calibration-year,end-year,,linear
+DRI_EAF_H2,DRI_EAF_H2,share-weight,final-calibration-year,end-year,,linear
+DRI_SAF_BOF_NG,DRI_SAF_BOF_NG,share-weight,final-calibration-year,end-year,,linear
+DRI_SAF_BOF_H2,DRI_SAF_BOF_H2,share-weight,final-calibration-year,end-year,,linear
+DRI_SAF_BOF_BECCS,DRI_SAF_BOF_BECCS,share-weight,final-calibration-year,end-year,,linear
+AEL_EAF,AEL_EAF,share-weight,final-calibration-year,end-year,,linear
+MOE,MOE,share-weight,final-calibration-year,end-year,,linear
+EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,share-weight,final-calibration-year,end-year,,linear
+EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,share-weight,final-calibration-year,end-year,,linear
+EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,share-weight,final-calibration-year,end-year,,linear
+EAF_scrap_bio_elec_finish,EAF_scrap_bio_elec_finish,share-weight,final-calibration-year,end-year,,linear

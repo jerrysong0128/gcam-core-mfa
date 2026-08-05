@@ -4,6 +4,25 @@
 # Column types: ccccn
 # ----------
 supplysector,subsector,year.fillout,year,share.weight
-iron and steel,BLASTFUR,start-year,,1
-iron and steel,EAF with DRI,start-year,,1
-iron and steel,EAF with scrap,start-year,,1
+BF_BOF,BF_BOF,start-year,,1
+BF_BOF_CCS_73%,BF_BOF_CCS_73%,start-year,,1
+BF_BOF_CCS_86%,BF_BOF_CCS_86%,start-year,,1
+BF_BOF_BECCSmin,BF_BOF_BECCSmin,start-year,,1
+BF_BOF_BECCSmax,BF_BOF_BECCSmax,start-year,,1
+SR_BOF,SR_BOF,start-year,,1
+SR_BOF_CCS,SR_BOF_CCS,start-year,,1
+DRI_EAF_NG,DRI_EAF_NG,start-year,,1
+DRI_EAF_NG_CCS,DRI_EAF_NG_CCS,start-year,,1
+DRI_EAF_coal,DRI_EAF_coal,start-year,,1
+DRI_EAF_coal_CCS,DRI_EAF_coal_CCS,start-year,,1
+DRI_EAF_BECCS,DRI_EAF_BECCS,start-year,,1
+DRI_EAF_H2,DRI_EAF_H2,start-year,,1
+DRI_SAF_BOF_NG,DRI_SAF_BOF_NG,start-year,,1
+DRI_SAF_BOF_H2,DRI_SAF_BOF_H2,start-year,,1
+DRI_SAF_BOF_BECCS,DRI_SAF_BOF_BECCS,start-year,,1
+AEL_EAF,AEL_EAF,start-year,,1
+MOE,MOE,start-year,,1
+EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,start-year,,1
+EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,start-year,,1
+EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,start-year,,1
+EAF_scrap_bio_elec_finish,EAF_scrap_bio_elec_finish,start-year,,1

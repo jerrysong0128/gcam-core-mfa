@@ -4,12 +4,25 @@
 # Column types: ccccn
 # ----------
 supplysector,subsector,stub.technology,minicam.non.energy.input,ccs_cost_adder
-iron and steel,BLASTFUR,BLASTFUR,non-energy,0
-iron and steel,BLASTFUR,BLASTFUR CCS,non-energy,0.00689
-iron and steel,BLASTFUR,Biomass-based,non-energy,0
-iron and steel,BLASTFUR,BLASTFUR with hydrogen,non-energy,0
-iron and steel,EAF with DRI,EAF with DRI,non-energy,0
-iron and steel,EAF with DRI,EAF with DRI CCS,non-energy,0.00689
-iron and steel,EAF with DRI,Hydrogen-based DRI,non-energy,0
-iron and steel,EAF with scrap,EAF with scrap,non-energy,0
-iron and steel,BLASTFUR,BLASTFUR CCS with hydrogen,non-energy,0.00689
+BF_BOF,BF_BOF,BF_BOF,non-energy,0
+BF_BOF_CCS_73%,BF_BOF_CCS_73%,BF_BOF_CCS_73%,non-energy,0.00689
+BF_BOF_CCS_86%,BF_BOF_CCS_86%,BF_BOF_CCS_86%,non-energy,0.00689
+BF_BOF_BECCSmin,BF_BOF_BECCSmin,BF_BOF_BECCSmin,non-energy,0.00689
+BF_BOF_BECCSmax,BF_BOF_BECCSmax,BF_BOF_BECCSmax,non-energy,0.00689
+SR_BOF,SR_BOF,SR_BOF,non-energy,0
+SR_BOF_CCS,SR_BOF_CCS,SR_BOF_CCS,non-energy,0.00689
+DRI_EAF_NG,DRI_EAF_NG,DRI_EAF_NG,non-energy,0
+DRI_EAF_NG_CCS,DRI_EAF_NG_CCS,DRI_EAF_NG_CCS,non-energy,0.00689
+DRI_EAF_coal,DRI_EAF_coal,DRI_EAF_coal,non-energy,0
+DRI_EAF_coal_CCS,DRI_EAF_coal_CCS,DRI_EAF_coal_CCS,non-energy,0.00689
+DRI_EAF_BECCS,DRI_EAF_BECCS,DRI_EAF_BECCS,non-energy,0.00689
+DRI_EAF_H2,DRI_EAF_H2,DRI_EAF_H2,non-energy,0
+DRI_SAF_BOF_NG,DRI_SAF_BOF_NG,DRI_SAF_BOF_NG,non-energy,0
+DRI_SAF_BOF_H2,DRI_SAF_BOF_H2,DRI_SAF_BOF_H2,non-energy,0
+DRI_SAF_BOF_BECCS,DRI_SAF_BOF_BECCS,DRI_SAF_BOF_BECCS,non-energy,0.00689
+AEL_EAF,AEL_EAF,AEL_EAF,non-energy,0
+MOE,MOE,MOE,non-energy,0
+EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,non-energy,0
+EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,non-energy,0
+EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,non-energy,0
+EAF_scrap_bio_elec_finish,EAF_scrap_bio_elec_finish,EAF_scrap_bio_elec_finish,non-energy,0
