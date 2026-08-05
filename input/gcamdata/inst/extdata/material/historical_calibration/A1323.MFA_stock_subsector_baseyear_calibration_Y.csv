@@ -1,0 +1,39 @@
+# File:  A1323.MFA_stock_subsector_baseyear_calibration_Y.csv
+# Title: percentage to assgin base year iron&steel stock into subsectors
+# Units: NA
+# Description: percentage to assgin base year iron&steel stock into subsectors
+# Column types: cnnnn
+# ----------
+region,T_S_per,M_S_per,C_S_per,P_S_per
+Africa_Eastern,0.133333333,0.315,0.443333333,0.108333333
+Africa_Northern,0.1375,0.29,0.46,0.1125
+Africa_Southern,0.183333333,0.24,0.443333333,0.133333333
+Africa_Western,0.11,0.32,0.47,0.1
+Argentina,0.109489051,0.116788321,0.729927007,0.04379562
+Australia_NZ,0.137727273,0.300909091,0.45,0.111363636
+Brazil,0.109489051,0.116788321,0.729927007,0.04379562
+Canada,0.32,0.11,0.47,0.1
+Central America and Caribbean,0.148,0.302666667,0.436666667,0.112666667
+Central Asia,0.18,0.305,0.39,0.125
+China,0.11,0.32,0.47,0.1
+Colombia,0.109489051,0.116788321,0.729927007,0.04379562
+EU-12,0.276,0.19,0.398,0.136
+EU-15,0.3,0.121538462,0.463846154,0.114615385
+Ukraine,0.2275,0.25,0.39,0.1325
+Europe_Non_EU,0.1825,0.27,0.425,0.1225
+European Free Trade Association,0.18,0.305,0.39,0.125
+India,0.27,0.155,0.47,0.125
+Indonesia,0.109489051,0.116788321,0.729927007,0.04379562
+Japan,0.3,0.1,0.47,0.13
+Mexico,0.22,0.2,0.43,0.15
+Middle East,0.137647059,0.303529412,0.451176471,0.107647059
+Pakistan,0.109489051,0.116788321,0.729927007,0.04379562
+Russia,0.3,0.1,0.47,0.13
+South Africa,0.109489051,0.116788321,0.729927007,0.04379562
+South America_Northern,0.145,0.3125,0.43,0.1125
+South America_Southern,0.11,0.32,0.47,0.1
+South Asia,0.13,0.315714286,0.447142857,0.107142857
+South Korea,0.2,0.285,0.39,0.125
+Southeast Asia,0.137272727,0.289090909,0.466363636,0.107272727
+Taiwan,0.064935065,0.103896104,0.779220779,0.051948052
+USA,0.3,0.1,0.47,0.13
