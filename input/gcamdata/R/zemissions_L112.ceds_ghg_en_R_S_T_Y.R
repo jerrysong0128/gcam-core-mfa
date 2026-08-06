@@ -551,7 +551,9 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
 
     # prepare detailed industry energy use for matching and filter out feedstocks
     L1323.in_EJ_R_iron_steel_F_Y %>%
-      mutate(sector = "iron and steel") %>%
+      # Detailed steel routes are independent supply sectors; retain the route
+      # name for the calibrated-technology and CEDS mappings.
+      mutate(sector = subsector) %>%
       filter(!fuel %in% c("scrap")) ->
       L1323.in_EJ_R_iron_steel_F_Y
 
@@ -603,7 +605,8 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
     L1323.in_EJ_R_iron_steel_F_Y %>%
       filter(year == FINAL_HISTORICAL_YEAR,
              # filter out electricity
-             !fuel %in% emissions.ZERO_EM_TECH) %>%
+             !fuel %in% emissions.ZERO_EM_TECH,
+             !is.na(value)) %>%
       group_by(GCAM_region_ID, sector, technology) %>%
       mutate(main.fuel = fuel[which.max(value)]) %>%
       select(GCAM_region_ID, supplysector = sector, stub.technology = technology, main.fuel) %>%
@@ -615,7 +618,8 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
     L101.in_EJ_R_en_Si_F_Yh %>%
       left_join(calibrated_techs %>% bind_rows(calibrated_outresources) %>% select(-secondary.output), by = c("sector", "fuel", "technology")) %>%
       # Replace subsector with fuel to preserve both in dataframe. Subsector will be added back later in L201
-      mutate(subsector = if_else(sector == "iron and steel", fuel, subsector)) %>%
+      mutate(subsector = if_else(supplysector == "iron and steel", fuel, subsector),
+             supplysector = if_else(supplysector == "iron and steel", sector, supplysector)) %>%
       rename(stub.technology = technology) %>%
       select(GCAM_region_ID, year, energy, supplysector, subsector, stub.technology) %>%
       na.omit() ->
@@ -814,7 +818,7 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
     # because of additional level of detail in iron and steel sector, map emissions to the main fuel for each technology and region
     # (current structure can't handle multiple inputs for each technology)
     L112.CEDSGCAM_computedemissions %>%
-      filter(supplysector == "iron and steel") %>%
+      filter(CEDS_agg_sector == "iron and steel") %>%
       select(-CEDS_agg_fuel) %>%
       left_join(ironsteel_main_fuel_BY, by = c("GCAM_region_ID", "supplysector", "stub.technology")) %>%
       mutate(subsector = main.fuel) %>%
@@ -825,7 +829,7 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
       L112.CEDSGCAM_computedemissions_steel_adj
 
     L112.CEDSGCAM_computedemissions %>%
-      filter(!supplysector == "iron and steel") %>%
+      filter(CEDS_agg_sector != "iron and steel") %>%
       bind_rows(L112.CEDSGCAM_computedemissions_steel_adj) ->
       L112.CEDSGCAM_computedemissions_complete
 
@@ -842,8 +846,8 @@ module_emissions_L112.ceds_ghg_en_R_S_T_Y <- function(command, ...) {
     L112.in_EJ_R_en_S_F_Yh_calib_all_baseenergy %>%
       left_join((ironsteel_main_fuel_BY %>% rename(CEDS_agg_fuel_remapped = CEDS_agg_fuel)),
                 by = c("GCAM_region_ID", "supplysector", "stub.technology")) %>%
-      mutate(subsector = if_else(supplysector == "iron and steel", main.fuel, subsector),
-             CEDS_agg_fuel = if_else(supplysector == "iron and steel", CEDS_agg_fuel_remapped, CEDS_agg_fuel)) %>%
+      mutate(subsector = if_else(CEDS_agg_sector == "iron and steel", main.fuel, subsector),
+             CEDS_agg_fuel = if_else(CEDS_agg_sector == "iron and steel", CEDS_agg_fuel_remapped, CEDS_agg_fuel)) %>%
       group_by(GCAM_region_ID, year, supplysector, subsector, stub.technology, CEDS_agg_sector, CEDS_agg_fuel) %>%
       summarise(energy = sum(energy)) %>%
       ungroup() ->

@@ -85,10 +85,14 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
     income_shares<-get_data(all_data, "socioeconomics/income_shares")
     groups<-income_shares %>% select(category) %>% distinct()
 
+    steel_sectors <- unique(L2323.StubTechProd_iron_steel$supplysector)
+
     # make a complete mapping to be able to look up with sector + subsector + tech the
     # input name to use for an input-driver
     bind_rows(
-      get_data(all_data, "energy/calibrated_techs") %>% select(supplysector, subsector, fuel, technology, minicam.energy.input),
+      get_data(all_data, "energy/calibrated_techs") %>%
+        mutate(supplysector = if_else(supplysector == "iron and steel", sector, supplysector)) %>%
+        select(supplysector, subsector, fuel, technology, minicam.energy.input),
       get_data(all_data, "energy/calibrated_techs_bld_det") %>% select(supplysector, subsector, fuel, technology, minicam.energy.input),
       get_data(all_data, UCD_tech_map_name) %>% select(supplysector, subsector = tranSubsector, fuel, technology = tranTechnology, minicam.energy.input)) %>%
       left_join(ind_subsector_revised %>% select(supplysector, subsector.emissions, fuel, technology, minicam.energy.input),
@@ -164,15 +168,15 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
     # outlier EFs with the global median.
     # Iron and Steel will have their own tables, so we can remove it from the previous tables
     L201.en_pol_emissions <- L201.en_pol_emissions_remove_IS %>%
-      filter(supplysector != "iron and steel")
+      filter(!supplysector %in% steel_sectors)
 
     L201.en_ghg_emissions <- L201.en_ghg_emissions_remove_IS %>%
-      filter(supplysector != "iron and steel")
+      filter(!supplysector %in% steel_sectors)
 
     # Compute output emissions factor for iron and steel
     L201.en_iron_and_steel_ef_replace_outliers <- L201.en_pol_emissions_remove_IS %>%
-      filter(supplysector == "iron and steel") %>%
-      bind_rows(L201.en_ghg_emissions_remove_IS %>% filter(supplysector == "iron and steel")) %>%
+      filter(supplysector %in% steel_sectors) %>%
+      bind_rows(L201.en_ghg_emissions_remove_IS %>% filter(supplysector %in% steel_sectors)) %>%
       # add in the iron and steel output
       left_join_error_no_match(L2323.StubTechProd_iron_steel, by = c("region", "supplysector", "subsector", "stub.technology", "year")) %>%
       # compute emissions factors
@@ -281,10 +285,10 @@ module_emissions_L201.en_nonco2 <- function(command, ...) {
 
     # remap iron and steel back to correct subsector, because fuel information is now attached
     L201.nonghg_gdp_control %>%
-      left_join(EnTechInputNameMap %>% filter(supplysector == "iron and steel") %>% select(-input.name) %>%
+      left_join(EnTechInputNameMap %>% filter(supplysector %in% steel_sectors) %>% select(-input.name) %>%
                   rename(subsector_orig = subsector) %>% unique(),
                 by = c("supplysector", "stub.technology")) %>%
-      mutate(subsector = if_else(supplysector == "iron and steel", subsector_orig, subsector)) %>%
+      mutate(subsector = if_else(supplysector %in% steel_sectors, subsector_orig, subsector)) %>%
       select(-subsector_orig) ->
       L201.nonghg_gdp_control
 
