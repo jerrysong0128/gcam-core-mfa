@@ -2682,6 +2682,16 @@ element input {
                *[@type='output']/physical-output/node()</xPath>
                         <comments/>
                     </supplyDemandQuery>
+                    <supplyDemandQuery title="iron and steel production by tech new">
+                        <axis1 name="technology">technology</axis1>
+                        <axis2 name="Year">physical-output[@vintage]</axis2>
+                        <xPath buildList="true" dataName="output" group="false" sumAll="false">
+                          *[@type='sector' and (@name='regional iron and steel')]/
+                          *[@type='subsector' and (@name='domestic iron and steel')]/*[@type='technology']/
+                          *[@type='output']/physical-output/node()
+                        </xPath>
+                        <comments/>
+                      </supplyDemandQuery>
                     <supplyDemandQuery title="iron and steel production by tech and vintage">
                         <axis1 name="technology">technology</axis1>
                         <axis2 name="Year">physical-output[@vintage]</axis2>
