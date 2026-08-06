@@ -14,7 +14,7 @@
 #' the generated outputs: \code{LB1092.Tradebalance_iron_steel_Mt_R_Y}.
 #' @importFrom dplyr filter if_else mutate select distinct
 #' @importFrom tidyr gather spread
-#' @author Siddarth Durga July 2022
+#' @author Siddarth Durga July 2022; Jingyang Song, PKU  August 2026; 
 module_energy_L1092.iron_steel_GrossTrade <- function(command, ...){
   if(command == driver.DECLARE_INPUTS) {
     return(c(FILE = "energy/WSA_steel_prod_cons_1970_2018",
@@ -23,6 +23,9 @@ module_energy_L1092.iron_steel_GrossTrade <- function(command, ...){
              FILE = "energy/mappings/comtrade_countrycode_ISO",
              FILE = "energy/mappings/comtrade_countrycode_ISO",
              FILE = "energy/Rt_iron_steel_bilateral_trade",
+             FILE = "material/historical_calibration/1_F_steel_200R_F_5_6_finished_steel_production",
+             FILE = "material/historical_calibration/1_F_steel_200R_F_11_12_final_steel_consumption",
+             FILE = "material/historical_calibration/IEDC_region_map",
              FILE = "common/GCAM_region_names",
              FILE = "common/iso_GCAM_regID"))
   } else if(command == driver.DECLARE_OUTPUTS) {
@@ -47,6 +50,9 @@ module_energy_L1092.iron_steel_GrossTrade <- function(command, ...){
     comtrade_countrycode_ISO <- get_data(all_data, "energy/mappings/comtrade_countrycode_ISO",strip_attributes = TRUE)
     Rt_iron_steel_bilateral_trade_data <- get_data(all_data, "energy/Rt_iron_steel_bilateral_trade",strip_attributes = TRUE) %>%
       filter(Year %in% c("2000",MODEL_BASE_YEARS))
+    IEDC_steel_production_raw <- get_data(all_data, "material/historical_calibration/1_F_steel_200R_F_5_6_finished_steel_production", strip_attributes = TRUE)
+    IEDC_steel_consumption_raw <- get_data(all_data, "material/historical_calibration/1_F_steel_200R_F_11_12_final_steel_consumption", strip_attributes = TRUE)
+    IEDC_region_map <- get_data(all_data, "material/historical_calibration/IEDC_region_map", strip_attributes = TRUE)
 
 
     # Bind iron and steel production, consumption, and trade data
@@ -237,6 +243,70 @@ module_energy_L1092.iron_steel_GrossTrade <- function(command, ...){
                                                      select(-dom_supply_adjust,
                                                             -intra_exports),dom_supply,exports)
 
+    # Extend the production and consumption histories back to 1900 using IEDC
+    # data. Split China and Russia to match GCAM's Taiwan and Ukraine regions.
+    bind_rows(mutate(IEDC_steel_production_raw, metric = "production"),
+              mutate(IEDC_steel_consumption_raw, metric = "consumption_reval")) %>%
+      select(metric, region_IEDC = `aspect 4 : origin_region`,
+             year = `aspect 7 : time`, value) %>%
+      left_join_error_no_match(IEDC_region_map, by = "region_IEDC") %>%
+      mutate(year = as.integer(year)) %>%
+      group_by(metric, region_GCAM, year) %>%
+      summarise(value = sum(value, na.rm = TRUE) / 1000, .groups = "drop") %>% # Gg to Mt
+      mutate(value = if_else(region_GCAM == "Russia", value * 0.6, value),
+             ukraine_value = if_else(region_GCAM == "Russia", value * 0.4 / 0.6, NA_real_),
+             value = if_else(region_GCAM == "China", value * 0.96, value),
+             taiwan_value = if_else(region_GCAM == "China", value * 0.04 / 0.96, NA_real_)) %>%
+      bind_rows(filter(., region_GCAM == "Russia") %>%
+                  mutate(region_GCAM = "Ukraine", value = ukraine_value),
+                filter(., region_GCAM == "China") %>%
+                  mutate(region_GCAM = "Taiwan", value = taiwan_value)) %>%
+      select(metric, region_GCAM, year, value) %>%
+      filter(region_GCAM %in% GCAM_region_names$region) -> IEDC_steel_history_unscaled
+
+    LB1092.Tradebalance_iron_steel_Mt_R_Y %>%
+      filter(metric %in% c("production", "consumption_reval"), year == 1970) %>%
+      select(metric, region_GCAM = GCAM_region, WSA = value) %>%
+      left_join(filter(IEDC_steel_history_unscaled, year == 1970) %>%
+                  select(metric, region_GCAM, IEDC = value),
+                by = c("metric", "region_GCAM")) %>%
+      mutate(target_scaler = pmin(WSA / IEDC, 5)) %>%
+      select(metric, region_GCAM, target_scaler) -> IEDC_steel_scaler_1970
+
+    IEDC_steel_history_unscaled %>%
+      left_join(IEDC_steel_scaler_1970, by = c("metric", "region_GCAM")) %>%
+      mutate(scaler = case_when(year <= 1960 ~ 1,
+                                year < 1970 ~ 1 + (year - 1960) / 10 * (target_scaler - 1),
+                                TRUE ~ target_scaler),
+             value = value * scaler) %>%
+      filter(year < 1970) %>%
+      select(metric, region_GCAM, year, value) -> IEDC_steel_history_scaled
+
+    IEDC_steel_history_scaled %>%
+      filter(metric == "production") %>%
+      select(-metric) -> IEDC_steel_production
+
+    IEDC_steel_history_scaled %>%
+      filter(metric == "consumption_reval") %>%
+      select(-metric) -> IEDC_steel_consumption
+
+    # With no historical gross-trade observations in the two IEDC tables,
+    # split the implied net trade so the existing trade-balance identity holds.
+    IEDC_steel_production %>%
+      rename(production = value) %>%
+      inner_join(rename(IEDC_steel_consumption, consumption_reval = value),
+                 by = c("region_GCAM", "year")) %>%
+      mutate(imports_reval = pmax(consumption_reval - production, 0),
+             exports_reval = pmax(production - consumption_reval, 0)) -> IEDC_steel_history
+
+    bind_rows(transmute(IEDC_steel_history, region_GCAM, year, metric = "production", value = production),
+              transmute(IEDC_steel_history, region_GCAM, year, metric = "consumption_reval", value = consumption_reval),
+              transmute(IEDC_steel_history, region_GCAM, year, metric = "imports_reval", value = imports_reval),
+              transmute(IEDC_steel_history, region_GCAM, year, metric = "exports_reval", value = exports_reval)) %>%
+      rename(GCAM_region = region_GCAM) %>%
+      bind_rows(LB1092.Tradebalance_iron_steel_Mt_R_Y) %>%
+      arrange(GCAM_region, year, metric) -> LB1092.Tradebalance_iron_steel_Mt_R_Y
+
     # Produce outputs
     LB1092.Tradebalance_iron_steel_Mt_R_Y %>%
       add_title("Gross trade of semi-finished and finished steel, by region / year.") %>%
@@ -247,6 +317,9 @@ module_energy_L1092.iron_steel_GrossTrade <- function(command, ...){
                      "energy/mappings/WSA_gcam_mapping",
                      "energy/mappings/comtrade_countrycode_ISO",
                      "energy/Rt_iron_steel_bilateral_trade",
+                     "material/historical_calibration/1_F_steel_200R_F_5_6_finished_steel_production",
+                     "material/historical_calibration/1_F_steel_200R_F_11_12_final_steel_consumption",
+                     "material/historical_calibration/IEDC_region_map",
                      "common/GCAM_region_names",
                      "common/iso_GCAM_regID") -> LB1092.Tradebalance_iron_steel_Mt_R_Y
 
