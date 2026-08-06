@@ -1,0 +1,28 @@
+# File: A_irnstl_tech_reference.csv
+# Title: Reference tech to multiply shareweights by
+# Units: NA
+# Column types: cc
+# ----------
+technology,reference_tech
+BF_BOF_CCS_86%,BF_BOF
+BF_BOF_BECCSmin,BF_BOF
+BF_BOF_BECCSmax,BF_BOF
+SR_BOF_CCS,BF_BOF
+DRI_EAF_NG_CCS,DRI_EAF_NG
+DRI_EAF_coal_CCS,DRI_EAF_NG
+DRI_EAF_BECCS,DRI_EAF_NG
+DRI_EAF_H2,DRI_EAF_NG
+DRI_SAF_BOF_H2,DRI_EAF_NG
+DRI_SAF_BOF_BECCS,DRI_EAF_NG
+AEL_EAF,BF_BOF
+MOE,BF_BOF
+EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish
+EAF_scrap_bio_NG_finish,EAF_scrap_fossil_NG_finish
+EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_NG_finish
+EAF_scrap_bio_elec_finish,EAF_scrap_fossil_NG_finish
+DRI_EAF_NG,DRI_EAF_NG
+DRI_SAF_BOF_NG,DRI_EAF_NG
+BF_BOF_CCS_73%,BF_BOF
+BF_BOF,BF_BOF
+SR_BOF,BF_BOF
+DRI_EAF_coal,DRI_EAF_NG

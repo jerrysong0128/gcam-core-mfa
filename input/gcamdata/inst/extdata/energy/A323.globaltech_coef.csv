@@ -7,67 +7,67 @@
 supplysector,subsector,technology,minicam.energy.input,charcoal_prop,1971,2010,2100
 BF_BOF,BF_BOF,BF_BOF,elect_td_ind,,4.73E-04,4.73E-04,4.73E-04
 BF_BOF,BF_BOF,BF_BOF,wholesale gas,,0.001282324,0.001282324,0.001282324
-BF_BOF,BF_BOF,BF_BOF,delivered coal industry,,0.021145411,0.021145411,0.021145411
+BF_BOF,BF_BOF,BF_BOF,delivered coal,,0.021145411,0.021145411,0.021145411
 BF_BOF_CCS_73%,BF_BOF_CCS_73%,BF_BOF_CCS_73%,elect_td_ind,,0.003481526,0.003481526,0.003481526
 BF_BOF_CCS_73%,BF_BOF_CCS_73%,BF_BOF_CCS_73%,wholesale gas,,0.001282324,0.001282324,0.001282324
-BF_BOF_CCS_73%,BF_BOF_CCS_73%,BF_BOF_CCS_73%,delivered coal industry,,0.021145411,0.021145411,0.021145411
+BF_BOF_CCS_73%,BF_BOF_CCS_73%,BF_BOF_CCS_73%,delivered coal,,0.021145411,0.021145411,0.021145411
 BF_BOF_CCS_86%,BF_BOF_CCS_86%,BF_BOF_CCS_86%,elect_td_ind,,0.004130652,0.004130652,0.004130652
 BF_BOF_CCS_86%,BF_BOF_CCS_86%,BF_BOF_CCS_86%,wholesale gas,,0.001282324,0.001282324,0.001282324
-BF_BOF_CCS_86%,BF_BOF_CCS_86%,BF_BOF_CCS_86%,delivered coal industry,,0.021145411,0.021145411,0.021145411
+BF_BOF_CCS_86%,BF_BOF_CCS_86%,BF_BOF_CCS_86%,delivered coal,,0.021145411,0.021145411,0.021145411
 BF_BOF_BECCSmin,BF_BOF_BECCSmin,BF_BOF_BECCSmin,elect_td_ind,,0.00349028,0.00349028,0.00349028
 BF_BOF_BECCSmin,BF_BOF_BECCSmin,BF_BOF_BECCSmin,wholesale gas,,0.003193198,0.003193198,0.003193198
-BF_BOF_BECCSmin,BF_BOF_BECCSmin,BF_BOF_BECCSmin,delivered coal industry,,0.014109881,0.014109881,0.014109881
-BF_BOF_BECCSmin,BF_BOF_BECCSmin,BF_BOF_BECCSmin,delivered biomass industry,0.669139151,0.006457984,0.006457984,0.006457984
+BF_BOF_BECCSmin,BF_BOF_BECCSmin,BF_BOF_BECCSmin,delivered coal,,0.014109881,0.014109881,0.014109881
+BF_BOF_BECCSmin,BF_BOF_BECCSmin,BF_BOF_BECCSmin,delivered biomass,0.669139151,0.006457984,0.006457984,0.006457984
 BF_BOF_BECCSmax,BF_BOF_BECCSmax,BF_BOF_BECCSmax,elect_td_ind,,0.003498084,0.003498084,0.003498084
 BF_BOF_BECCSmax,BF_BOF_BECCSmax,BF_BOF_BECCSmax,wholesale gas,,0.003193198,0.003193198,0.003193198
-BF_BOF_BECCSmax,BF_BOF_BECCSmax,BF_BOF_BECCSmax,delivered coal industry,,0.012959383,0.012959383,0.012959383
-BF_BOF_BECCSmax,BF_BOF_BECCSmax,BF_BOF_BECCSmax,delivered biomass industry,0.704676224,0.007619336,0.007619336,0.007619336
+BF_BOF_BECCSmax,BF_BOF_BECCSmax,BF_BOF_BECCSmax,delivered coal,,0.012959383,0.012959383,0.012959383
+BF_BOF_BECCSmax,BF_BOF_BECCSmax,BF_BOF_BECCSmax,delivered biomass,0.704676224,0.007619336,0.007619336,0.007619336
 SR_BOF,SR_BOF,SR_BOF,elect_td_ind,,0.002120395,0.002120395,0.002120395
 SR_BOF,SR_BOF,SR_BOF,wholesale gas,,0.001838858,0.001838858,0.001838858
-SR_BOF,SR_BOF,SR_BOF,delivered coal industry,,0.013784268,0.013784268,0.013784268
+SR_BOF,SR_BOF,SR_BOF,delivered coal,,0.013784268,0.013784268,0.013784268
 SR_BOF_CCS,SR_BOF_CCS,SR_BOF_CCS,elect_td_ind,,0.002993667,0.002993667,0.002993667
 SR_BOF_CCS,SR_BOF_CCS,SR_BOF_CCS,wholesale gas,,0.001838858,0.001838858,0.001838858
-SR_BOF_CCS,SR_BOF_CCS,SR_BOF_CCS,delivered coal industry,,0.013784268,0.013784268,0.013784268
+SR_BOF_CCS,SR_BOF_CCS,SR_BOF_CCS,delivered coal,,0.013784268,0.013784268,0.013784268
 DRI_EAF_NG,DRI_EAF_NG,DRI_EAF_NG,elect_td_ind,,0.002046731,0.002046731,0.002046731
 DRI_EAF_NG,DRI_EAF_NG,DRI_EAF_NG,wholesale gas,,0.013973955,0.013973955,0.013973955
-DRI_EAF_NG,DRI_EAF_NG,DRI_EAF_NG,delivered coal industry,,7.96E-05,7.96E-05,7.96E-05
+DRI_EAF_NG,DRI_EAF_NG,DRI_EAF_NG,delivered coal,,7.96E-05,7.96E-05,7.96E-05
 DRI_EAF_NG_CCS,DRI_EAF_NG_CCS,DRI_EAF_NG_CCS,elect_td_ind,,0.00270881,0.00270881,0.00270881
 DRI_EAF_NG_CCS,DRI_EAF_NG_CCS,DRI_EAF_NG_CCS,wholesale gas,,0.013973955,0.013973955,0.013973955
-DRI_EAF_NG_CCS,DRI_EAF_NG_CCS,DRI_EAF_NG_CCS,delivered coal industry,,7.96E-05,7.96E-05,7.96E-05
+DRI_EAF_NG_CCS,DRI_EAF_NG_CCS,DRI_EAF_NG_CCS,delivered coal,,7.96E-05,7.96E-05,7.96E-05
 DRI_EAF_coal,DRI_EAF_coal,DRI_EAF_coal,elect_td_ind,,0.00442379,0.00442379,0.00442379
 DRI_EAF_coal,DRI_EAF_coal,DRI_EAF_coal,wholesale gas,,0.002609474,0.002609474,0.002609474
-DRI_EAF_coal,DRI_EAF_coal,DRI_EAF_coal,delivered coal industry,,0.021479927,0.021479927,0.021479927
+DRI_EAF_coal,DRI_EAF_coal,DRI_EAF_coal,delivered coal,,0.021479927,0.021479927,0.021479927
 DRI_EAF_coal_CCS,DRI_EAF_coal_CCS,DRI_EAF_coal_CCS,elect_td_ind,,0.009796144,0.009796144,0.009796144
 DRI_EAF_coal_CCS,DRI_EAF_coal_CCS,DRI_EAF_coal_CCS,wholesale gas,,0.002609474,0.002609474,0.002609474
-DRI_EAF_coal_CCS,DRI_EAF_coal_CCS,DRI_EAF_coal_CCS,delivered coal industry,,0.021479927,0.021479927,0.021479927
+DRI_EAF_coal_CCS,DRI_EAF_coal_CCS,DRI_EAF_coal_CCS,delivered coal,,0.021479927,0.021479927,0.021479927
 DRI_EAF_BECCS,DRI_EAF_BECCS,DRI_EAF_BECCS,elect_td_ind,,0.003871925,0.003871925,0.003871925
-DRI_EAF_BECCS,DRI_EAF_BECCS,DRI_EAF_BECCS,delivered biomass industry,1,0.017985281,0.017985281,0.017985281
+DRI_EAF_BECCS,DRI_EAF_BECCS,DRI_EAF_BECCS,delivered biomass,1,0.017985281,0.017985281,0.017985281
 DRI_EAF_H2,DRI_EAF_H2,DRI_EAF_H2,elect_td_ind,,0.002703442,0.002703442,0.002703442
 DRI_EAF_H2,DRI_EAF_H2,DRI_EAF_H2,H2 industrial,,0.011567232,0.011567232,0.011567232
-DRI_EAF_H2,DRI_EAF_H2,DRI_EAF_H2,delivered biomass industry,1,5.75E-04,5.75E-04,5.75E-04
+DRI_EAF_H2,DRI_EAF_H2,DRI_EAF_H2,delivered biomass,1,5.75E-04,5.75E-04,5.75E-04
 DRI_SAF_BOF_NG,DRI_SAF_BOF_NG,DRI_SAF_BOF_NG,elect_td_ind,,0.002606229,0.002606229,0.002606229
 DRI_SAF_BOF_NG,DRI_SAF_BOF_NG,DRI_SAF_BOF_NG,wholesale gas,,0.013313948,0.013313948,0.013313948
-DRI_SAF_BOF_NG,DRI_SAF_BOF_NG,DRI_SAF_BOF_NG,delivered coal industry,,1.10E-04,1.10E-04,1.10E-04
+DRI_SAF_BOF_NG,DRI_SAF_BOF_NG,DRI_SAF_BOF_NG,delivered coal,,1.10E-04,1.10E-04,1.10E-04
 DRI_SAF_BOF_H2,DRI_SAF_BOF_H2,DRI_SAF_BOF_H2,elect_td_ind,,0.002606229,0.002606229,0.002606229
 DRI_SAF_BOF_H2,DRI_SAF_BOF_H2,DRI_SAF_BOF_H2,H2 industrial,,0.01080662,0.01080662,0.01080662
-DRI_SAF_BOF_H2,DRI_SAF_BOF_H2,DRI_SAF_BOF_H2,delivered biomass industry,1,0.001549519,0.001549519,0.001549519
+DRI_SAF_BOF_H2,DRI_SAF_BOF_H2,DRI_SAF_BOF_H2,delivered biomass,1,0.001549519,0.001549519,0.001549519
 DRI_SAF_BOF_BECCS,DRI_SAF_BOF_BECCS,DRI_SAF_BOF_BECCS,elect_td_ind,,0.006054223,0.006054223,0.006054223
-DRI_SAF_BOF_BECCS,DRI_SAF_BOF_BECCS,DRI_SAF_BOF_BECCS,delivered biomass industry,1,0.017228266,0.017228266,0.017228266
+DRI_SAF_BOF_BECCS,DRI_SAF_BOF_BECCS,DRI_SAF_BOF_BECCS,delivered biomass,1,0.017228266,0.017228266,0.017228266
 AEL_EAF,AEL_EAF,AEL_EAF,elect_td_ind,,0.017590407,0.017590407,0.017590407
-AEL_EAF,AEL_EAF,AEL_EAF,delivered biomass industry,1,4.07E-04,4.07E-04,4.07E-04
+AEL_EAF,AEL_EAF,AEL_EAF,delivered biomass,1,4.07E-04,4.07E-04,4.07E-04
 MOE,MOE,MOE,elect_td_ind,,0.019102552,0.019102552,0.019102552
 EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,elect_td_ind,,0.002705709,0.002705709,0.002705709
 EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,wholesale gas,,0.003051005,0.003051005,0.003051005
-EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,delivered coal industry,,4.05E-04,4.05E-04,4.05E-04
+EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,delivered coal,,4.05E-04,4.05E-04,4.05E-04
 EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,EAF_scrap_fossil_NG_finish,scrap,,1.1,1.1,1.1
 EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,elect_td_ind,,0.003147239,0.003147239,0.003147239
 EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,wholesale gas,,0.002609474,0.002609474,0.002609474
-EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,delivered biomass industry,1,4.07E-04,4.07E-04,4.07E-04
+EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,delivered biomass,1,4.07E-04,4.07E-04,4.07E-04
 EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,EAF_scrap_bio_NG_finish,scrap,,1.1,1.1,1.1
 EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,elect_td_ind,,0.005315183,0.005315183,0.005315183
 EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,wholesale gas,,4.42E-04,4.42E-04,4.42E-04
-EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,delivered coal industry,,4.05E-04,4.05E-04,4.05E-04
+EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,delivered coal,,4.05E-04,4.05E-04,4.05E-04
 EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,EAF_scrap_fossil_elec_finish,scrap,,1.1,1.1,1.1
 EAF_scrap_bio_elec_finish,EAF_scrap_bio_elec_finish,EAF_scrap_bio_elec_finish,elect_td_ind,,0.005756714,0.005756714,0.005756714
-EAF_scrap_bio_elec_finish,EAF_scrap_bio_elec_finish,EAF_scrap_bio_elec_finish,delivered biomass industry,1,4.07E-04,4.07E-04,4.07E-04
+EAF_scrap_bio_elec_finish,EAF_scrap_bio_elec_finish,EAF_scrap_bio_elec_finish,delivered biomass,1,4.07E-04,4.07E-04,4.07E-04
 EAF_scrap_bio_elec_finish,EAF_scrap_bio_elec_finish,EAF_scrap_bio_elec_finish,scrap,,1.1,1.1,1.1

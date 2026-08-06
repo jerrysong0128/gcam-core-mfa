@@ -6,5 +6,5 @@
 # Column types: ccncncccncc
 # ----------
 supplysector,subsector,logit.exponent,year.fillout,share.weight,apply.to,from.year,to.year,to.value,interpolation.function,logit.type
-regional iron and steel,domestic iron and steel,-6,start-year,1,share-weight,final-calibration-year,2100,1,fixed,
-regional iron and steel,imported iron and steel,-6,start-year,1,share-weight,final-calibration-year,2100,1,fixed,
+regional iron and steel,domestic iron and steel,-6,initial-future-year,1,share-weight,final-calibration-year,2100,1,fixed,
+regional iron and steel,imported iron and steel,-6,initial-future-year,1,share-weight,final-calibration-year,2100,1,fixed,

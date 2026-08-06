@@ -13,8 +13,8 @@
 #'   \code{L238.SubsectorAll_reg}, \code{L238.TechShrwt_reg}, \code{L238.TechCoef_reg}, \code{L238.Production_reg_imp},
 #'   \code{L238.Production_reg_dom}.
 #' @importFrom assertthat assert_that
-#' @importFrom dplyr filter if_else left_join mutate rename select
-#' @importFrom tidyr replace_na
+#' @importFrom dplyr arrange filter group_by if_else left_join mutate rename select summarise ungroup
+#' @importFrom tidyr complete nesting replace_na
 #' @importFrom tibble tibble
 #' @author Siddarth Durga July 2022
 module_energy_L238.iron_steel_trade <- function(command, ...) {
@@ -26,6 +26,9 @@ module_energy_L238.iron_steel_trade <- function(command, ...) {
              FILE = "energy/A_irnstl_TradedSector",
              FILE = "energy/A_irnstl_TradedSubsector",
              FILE = "energy/A_irnstl_TradedTechnology",
+             FILE = "energy/A323.globaltech_shrwt",
+             FILE = "energy/A_irnstl_base_shareweights",
+             FILE = "energy/A_irnstl_tech_reference",
              "LB1092.Tradebalance_iron_steel_Mt_R_Y",
              "L2323.StubTechProd_iron_steel"))
   } else if(command == driver.DECLARE_OUTPUTS) {
@@ -50,7 +53,8 @@ module_energy_L238.iron_steel_trade <- function(command, ...) {
       calOutputValue <- subs.share.weight <- market.name <- minicam.energy.input <-
       GrossImp_Mt <- Prod_Mt <- GCAM_region_ID <- GCAM_region <- NetExp_Mt <- Prod_bm3 <-
       NetExp_bm3 <- value <- metric <- flow <- GrossExp <- route.production <-
-      route.share <- technology <- NULL # silence package check notes
+      route.share <- technology <- share.weight <- reference_tech <- ref_shwt <-
+      share.weight.base <- gated.shwt <- shareweight <- NULL # silence package check notes
 
     # Load required inputs
     GCAM_region_names <- get_data(all_data, "common/GCAM_region_names")
@@ -60,6 +64,9 @@ module_energy_L238.iron_steel_trade <- function(command, ...) {
     A_irnstl_TradedSector <- get_data(all_data, "energy/A_irnstl_TradedSector", strip_attributes = TRUE)
     A_irnstl_TradedSubsector <- get_data(all_data, "energy/A_irnstl_TradedSubsector", strip_attributes = TRUE)
     A_irnstl_TradedTechnology <- get_data(all_data, "energy/A_irnstl_TradedTechnology", strip_attributes = TRUE)
+    A323.globaltech_shrwt <- get_data(all_data, "energy/A323.globaltech_shrwt", strip_attributes = TRUE)
+    A_irnstl_base_shareweights <- get_data(all_data, "energy/A_irnstl_base_shareweights", strip_attributes = TRUE)
+    A_irnstl_tech_reference <- get_data(all_data, "energy/A_irnstl_tech_reference", strip_attributes = TRUE)
     LB1092.Tradebalance_iron_steel_Mt_R_Y <- get_data(all_data, "LB1092.Tradebalance_iron_steel_Mt_R_Y")
     L2323.StubTechProd_iron_steel <- get_data(all_data, "L2323.StubTechProd_iron_steel", strip_attributes = TRUE)
 
@@ -92,6 +99,45 @@ module_energy_L238.iron_steel_trade <- function(command, ...) {
         repeat_add_columns(steel_routes) %>%
         mutate(technology = paste("domestic", minicam.energy.input))
     )
+
+    # Gate route-level share-weights so demand is not sent to production routes
+    # that cannot supply in a given year (root cause of Supply=0/Demand>0 in 2025).
+    # Route availability comes from A323.globaltech_shrwt; calibrated routes use
+    # their region-specific base share-weight, and advanced routes get the route
+    # availability (globaltech_shrwt) multiplied by their reference route's base.
+    route_shrwt_global <- A323.globaltech_shrwt %>%
+      gather_years %>%
+      complete(nesting(supplysector, subsector, technology),
+               year = c(year, MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
+      arrange(supplysector, subsector, technology, year) %>%
+      group_by(supplysector, subsector, technology) %>%
+      mutate(share.weight = approx_fun(year, value, rule = 1)) %>%
+      ungroup %>%
+      filter(year %in% c(MODEL_BASE_YEARS, MODEL_FUTURE_YEARS)) %>%
+      select(technology, year, share.weight)
+
+    # Region-specific base share-weights (2015), interpolated linearly to 1 in 2100
+    route_shrwt_base <- A_irnstl_base_shareweights %>%
+      select(region, technology, share.weight.base = shareweight) %>%
+      mutate(year = 2015) %>%
+      complete(nesting(region, technology), year = c(2015, MODEL_FUTURE_YEARS)) %>%
+      mutate(share.weight.base = if_else(year == 2100, 1, share.weight.base)) %>%
+      group_by(region, technology) %>%
+      mutate(share.weight.base = approx_fun(year, share.weight.base)) %>%
+      ungroup
+
+    # Combine: calibrated routes -> own base share-weight; advanced routes ->
+    # route availability x reference route base share-weight
+    route_shrwt_regional <- route_shrwt_global %>%
+      left_join_error_no_match(A_irnstl_tech_reference, by = "technology") %>%
+      repeat_add_columns(GCAM_region_names %>% select(region)) %>%
+      left_join(route_shrwt_base %>% rename(ref_shwt = share.weight.base),
+                by = c("reference_tech" = "technology", "region", "year")) %>%
+      tidyr::replace_na(list(ref_shwt = 1)) %>%
+      left_join(route_shrwt_base, by = c("technology", "region", "year")) %>%
+      mutate(share.weight = if_else(!is.na(share.weight.base),
+                                    share.weight.base, share.weight * ref_shwt)) %>%
+      select(region, minicam.energy.input = technology, year, gated.shwt = share.weight)
 
     # 1. TRADED SECTOR / SUBSECTOR / TECHNOLOGY")
     # L238.Supplysector_tra: generic supplysector info for traded iron and steel
@@ -127,8 +173,14 @@ module_energy_L238.iron_steel_trade <- function(command, ...) {
              market.name = region,
              region = gcam.USA_REGION)
 
-    # L238.TechShrwt_tra: Share-weights of traded technologies
-    L238.TechShrwt_tra <- select(A_irnstl_TradedTechnology_R_Y, LEVEL2_DATA_NAMES[["TechShrwt"]])
+    # L238.TechShrwt_tra: Share-weights of traded technologies (gated by route availability)
+    # Base-year share-weights are supplied by the calibration (Production) tables,
+    # so only future-year share-weights are written here to avoid redundancy.
+    L238.TechShrwt_tra <- A_irnstl_TradedTechnology_R_Y %>%
+      filter(year %in% MODEL_FUTURE_YEARS) %>%
+      left_join(route_shrwt_regional, by = c(market.name = "region", "minicam.energy.input", "year")) %>%
+      mutate(share.weight = if_else(is.na(gated.shwt), share.weight, gated.shwt)) %>%
+      select(LEVEL2_DATA_NAMES[["TechShrwt"]])
 
     # L238.TechCost_tra: Costs of traded technologies
     L238.TechCost_tra <- A_irnstl_TradedTechnology_R_Y %>%
@@ -181,8 +233,14 @@ module_energy_L238.iron_steel_trade <- function(command, ...) {
       repeat_add_columns(GCAM_region_names["region"]) %>%
       mutate(market.name = if_else(market.name == "regional", region, market.name))
 
-    # L238.TechShrwt_tra: Share-weights of traded technologies
-    L238.TechShrwt_reg <- select(A_irnstl_RegionalTechnology_R_Y, LEVEL2_DATA_NAMES[["TechShrwt"]])
+    # L238.TechShrwt_reg: Share-weights of regional technologies (domestic routes gated by availability)
+    # Base-year share-weights are supplied by the calibration (Production) tables,
+    # so only future-year share-weights are written here to avoid redundancy.
+    L238.TechShrwt_reg <- A_irnstl_RegionalTechnology_R_Y %>%
+      filter(year %in% MODEL_FUTURE_YEARS) %>%
+      left_join(route_shrwt_regional, by = c("region", "minicam.energy.input", "year")) %>%
+      mutate(share.weight = if_else(is.na(gated.shwt), share.weight, gated.shwt)) %>%
+      select(LEVEL2_DATA_NAMES[["TechShrwt"]])
 
     # L238.TechCoef_reg: Coefficient and market name of traded technologies
     L238.TechCoef_reg <- select(A_irnstl_RegionalTechnology_R_Y, LEVEL2_DATA_NAMES[["TechCoef"]])
@@ -260,9 +318,12 @@ module_energy_L238.iron_steel_trade <- function(command, ...) {
     L238.TechShrwt_tra %>%
       add_title("Technology share-weights for traded iron and steel") %>%
       add_units("None") %>%
-      add_comments("Modeled for all GCAM regions") %>%
+      add_comments("Modeled for all GCAM regions; route technologies gated by route availability") %>%
       add_precursors("common/GCAM_region_names",
-                     "energy/A_irnstl_TradedTechnology") ->
+                     "energy/A_irnstl_TradedTechnology",
+                     "energy/A323.globaltech_shrwt",
+                     "energy/A_irnstl_base_shareweights",
+                     "energy/A_irnstl_tech_reference") ->
       L238.TechShrwt_tra
 
     L238.TechCost_tra %>%
@@ -304,11 +365,14 @@ module_energy_L238.iron_steel_trade <- function(command, ...) {
       L238.SubsectorAll_reg
 
     L238.TechShrwt_reg %>%
-      add_title("Technology share-weights for traded iron and steel") %>%
+      add_title("Technology share-weights for regional iron and steel") %>%
       add_units("None") %>%
-      add_comments("Modeled for all GCAM regions") %>%
+      add_comments("Modeled for all GCAM regions; domestic route technologies gated by route availability") %>%
       add_precursors("common/GCAM_region_names",
-                     "energy/A_irnstl_RegionalTechnology") ->
+                     "energy/A_irnstl_RegionalTechnology",
+                     "energy/A323.globaltech_shrwt",
+                     "energy/A_irnstl_base_shareweights",
+                     "energy/A_irnstl_tech_reference") ->
       L238.TechShrwt_reg
 
     L238.TechCoef_reg %>%
